@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="880.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_and_ladder.Game_Controller">
+    <Separator layoutX="278.0" layoutY="376.0" prefHeight="3.0" prefWidth="200.0" />
+    <Separator layoutX="278.0" layoutY="276.0" prefWidth="200.0" />
+    <Separator layoutX="278.0" layoutY="488.0" prefWidth="200.0" />
+    <Separator layoutX="282.0" layoutY="605.0" prefWidth="200.0" />
+    <Button fx:id="vsComputer" alignment="CENTER" layoutX="315.0" layoutY="216.0" mnemonicParsing="false" onAction="#goToVsComputer" prefHeight="30.0" prefWidth="121.0" text="vs Computer" textAlignment="CENTER" wrapText="true" />
+    <Button fx:id="player1VsPlayer2" alignment="CENTER" layoutX="304.0" layoutY="331.0" mnemonicParsing="false" onAction="#goToLocalMultiplayer" prefHeight="30.0" prefWidth="144.0" text="Player 1 Vs Player 2" textAlignment="CENTER" wrapText="true">
+      <font>
+         <Font size="11.0" />
+      </font></Button>
+    <Button fx:id="onlineMultiplayer" alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="440.0" mnemonicParsing="false" onAction="#goToOnlineMultiplayer" prefHeight="30.0" prefWidth="144.0" text="Online Multiplayer" wrapText="true" />
+    <Button fx:id="playWithFriend" alignment="CENTER" layoutX="320.0" layoutY="555.0" mnemonicParsing="false" onAction="#goToPlayWithFriend" prefHeight="30.0" prefWidth="121.0" text="Play With Friend" textAlignment="CENTER" wrapText="true" />
+    <Button fx:id="coinSlot" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="806.0" mnemonicParsing="false" onAction="#goToCoinSlot" text="Coin Slot" wrapText="true" />
+    <Button fx:id="medal" layoutX="202.0" layoutY="806.0" mnemonicParsing="false" onAction="#goToMedal" text="medal" />
+    <Button fx:id="playLudo" layoutX="334.0" layoutY="806.0" mnemonicParsing="false" onAction="#goToPlayLudo" text="playLudo" />
+    <Button fx:id="people" layoutX="475.0" layoutY="806.0" mnemonicParsing="false" onAction="#goToPeople" text="people" />
+    <Separator layoutX="250.0" layoutY="163.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="6.0" />
+    <Separator layoutX="250.0" layoutY="346.0" orientation="VERTICAL" prefHeight="200.0" />
+    <Separator layoutX="496.0" layoutY="164.0" orientation="VERTICAL" prefHeight="153.0" prefWidth="6.0" />
+    <Separator layoutX="496.0" layoutY="355.0" orientation="VERTICAL" prefHeight="200.0" />
+    <Button fx:id="freeCoins" layoutX="617.0" layoutY="806.0" mnemonicParsing="false" onAction="#goToFreeCoins" text="freeCoins" />
+    <Button fx:id="lucky7" alignment="CENTER" layoutX="320.0" layoutY="670.0" mnemonicParsing="false" onAction="#goToLucky7" prefHeight="30.0" prefWidth="121.0" text="Lucky 7" textAlignment="CENTER" wrapText="true" />
+    <Separator layoutX="282.0" layoutY="717.0" prefWidth="200.0" />
+    <Separator layoutX="250.0" layoutY="570.0" orientation="VERTICAL" prefHeight="163.0" prefWidth="0.0" />
+    <Separator layoutX="496.0" layoutY="570.0" orientation="VERTICAL" prefHeight="163.0" prefWidth="6.0" />
+    <Button fx:id="trim" alignment="CENTER" layoutX="85.0" layoutY="182.0" mnemonicParsing="false" onAction="#goToTrim" prefHeight="69.0" prefWidth="102.0" text="trim" textAlignment="CENTER" wrapText="true" />
+    <Button fx:id="stuff" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="1.0" layoutX="551.0" layoutY="182.0" mnemonicParsing="false" onAction="#goToStuff" prefHeight="69.0" prefWidth="121.0" text="stuff" textAlignment="CENTER" wrapText="true" />
+   <Button fx:id="exit" layoutX="352.0" layoutY="733.0" mnemonicParsing="false" onAction="#goToGameExit" text="EXIT" />
+</AnchorPane>

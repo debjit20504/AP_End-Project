@@ -9,6 +9,7 @@ module com.example.snake_and_ladder {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires javafx.media;
 
     opens com.example.snake_and_ladder to javafx.fxml;
     exports com.example.snake_and_ladder;
