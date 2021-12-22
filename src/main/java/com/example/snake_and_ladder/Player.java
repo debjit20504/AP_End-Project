@@ -46,12 +46,6 @@ public class Player implements Initializable
 //        menu.start(new Stage());
 //    }
 
-    @FXML
-    private void handleRestartButton(ActionEvent event)
-    {
-        reset();
-    }
-
     private void msg(final String str)
     {
         Platform.runLater(() -> {
@@ -66,22 +60,6 @@ public class Player implements Initializable
             alert.setContentText(str);
             alert.showAndWait();
         });
-    }
-
-    private void reset()
-    {
-        whatNo.setImage(new Image(file:ImagesAndVideos/));
-        bluecurrentPos = 1;
-        redcurrentPos = 1;
-        Platform.runLater(() ->{
-            bluePos.setText("00");
-            redPos.setText("00");
-        });
-        bluePawnButton.setDisable(false);
-        redPawnButton.setDisable(true);
-        restart.setDisable(false);
-        blue.setVisible(false);
-        red.setVisible(false);
     }
 
     private void changeBluePos()
@@ -488,7 +466,6 @@ public class Player implements Initializable
                     }
                     if(bluecurrentPos == 100){
                         msg("PLAYER 1 WON THE GAME");
-                        reset();
                         return;
                     }
                 }
@@ -871,7 +848,6 @@ public class Player implements Initializable
                     }
                     if(redcurrentPos == 100){
                         msg("PLAYER 2 WON THE GAME");
-                        reset();
                         return;
                     }
                 }
