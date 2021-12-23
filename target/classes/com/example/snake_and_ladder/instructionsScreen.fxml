@@ -10,9 +10,9 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_and_ladder.Game_Controller">
-   <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="800.0" layoutY="2.0" />
-   <Button fx:id="skip" alignment="CENTER" contentDisplay="CENTER" layoutX="669.0" layoutY="347.0" mnemonicParsing="false" onAction="#menuScreen" opacity="0.28" prefHeight="30.0" prefWidth="101.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.snake_and_ladder.InstructionMediaController">
+   <MediaView fx:id="mediaView" fitHeight="400.0" fitWidth="650.0" layoutY="2.0" />
+   <Button fx:id="skip" alignment="CENTER" contentDisplay="CENTER" layoutX="506.0" layoutY="339.0" mnemonicParsing="false" opacity="0.28" prefHeight="30.0" prefWidth="101.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
          <Font name="Bodoni MT" size="18.0" />
       </font>

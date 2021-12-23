@@ -1,189 +1,330 @@
 package com.example.snake_and_ladder;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
-
+import javafx.scene.layout.Pane;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.snake_and_ladder.InstructionMediaController.mediaPlayer;
+
 public class Game_Controller implements Initializable {
 
     /////////////////////////////////////////////////////
     @FXML
-    private Button vsComputer;
+    public Button vsComputer;
     @FXML
-    private Button player1VsPlayer2;
+    public Button player1VsPlayer2;
     @FXML
-    private Button onlineMultiplayer;
+    public Button onlineMultiplayer;
     @FXML
-    private Button playWithFriend;
+    public Button playWithFriend;
     @FXML
-    private Button coinSlot;
+    public Button coinSlot;
     @FXML
-    private Button medal;
+    public Button medal;
     @FXML
-    private Button playLudo;
+    public Button playLudo;
     @FXML
-    private Button people;
+    public Button people;
     @FXML
-    private Button freeCoins;
+    public Button freeCoins;
     @FXML
-    private Button lucky7;
+    public Button lucky7;
     @FXML
-    private Button trim;
+    public Button trim;
     @FXML
-    private Button stuff;
+    public Button stuff;
     @FXML
-    private Button exit;
+    public Button exit;
 
-    @FXML
-    public Button goBackToMenuFromCoinSlot;
-    @FXML
-    public Button goBackToMenuFromFreeCoins;
-    @FXML
-    public Button goBackToMenuFromLocalMultiplayer;
-    @FXML
-    public Button goBackToMenuFromLucky7;
-    @FXML
-    public Button goBackToMenuFromMedal;
-    @FXML
-    public Button goBackToMenuFromOnlineMultiplayer;
-    @FXML
-    public Button goBackToMenuFromPeople;
-    @FXML
-    public Button goBackToMenuFromPlayLudo;
-    @FXML
-    public Button goBackToMenuFromPlayWithFriend;
-    @FXML
-    public Button goBackToMenuFromStuff;
-    @FXML
-    public Button goBackToMenuFromTrim;
-    @FXML
-    public Button goBackToMenuFromVsComputer;
 
-    ////////////////////////////////////////////////////
-    @FXML
-    static MediaView mediaView;
-    ////////////////////////////////////////////////////
 
-    static  MediaPlayer mediaPlayer;
-    static  Stage stage;
-    public  Scene scene;
+    static  public  Scene scene;
+    static String css;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//            FXMLLoader fxmlLoader= new  FXMLLoader((Game_Controller.class.getResource("menuScreen.fxml")));
-//        try {
-//            fxmlLoader.load();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
+
+        css = new File("src/NotAvailable.css").toURI().toString();
+
+
+        EventHandler<ActionEvent> ButtonTrim = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToTrim();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonPlayWithFriend = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToPlayWithFriend();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+
+        EventHandler<ActionEvent> ButtonOnlineMultiplayer = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToOnlineMultiplayer();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+
+        EventHandler<ActionEvent> ButtonPlayer1VsPlayer2 = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToLocalMultiplayer();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonPeople = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToPeople();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonCoinSlot = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToCoinSlot();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonExit= new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                goToGameExit();
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonLucky7 = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToLucky7();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonPlayLudo = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToPlayLudo();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonFreeCoins = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToFreeCoins();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonVsComputer = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToVsComputer();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonMedal = new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToMedal();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        EventHandler<ActionEvent> ButtonStuff= new EventHandler<>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                // TODO Auto-generated method stub
+                try {
+                    goToStuff();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+
+        stuff.setOnAction(ButtonStuff);
+        trim.setOnAction(ButtonTrim);
+        onlineMultiplayer.setOnAction(ButtonOnlineMultiplayer);
+        player1VsPlayer2.setOnAction(ButtonPlayer1VsPlayer2);
+        exit.setOnAction(ButtonExit);
+        lucky7.setOnAction(ButtonLucky7);
+        freeCoins.setOnAction(ButtonFreeCoins);
+        people.setOnAction(ButtonPeople);
+        playLudo.setOnAction(ButtonPlayLudo);
+        medal.setOnAction(ButtonMedal);
+        coinSlot.setOnAction(ButtonCoinSlot);
+        vsComputer.setOnAction(ButtonVsComputer);
+        playWithFriend.setOnAction(ButtonPlayWithFriend);
 
     }
 
-   public void instructionsPlay() {
-       File file= new File("src/yt1s.com - Snakes and Ladders Board Game Rules  Instructions" +
-               "  Learn How To Play Snake and Ladder Game_1080p.mp4");
-       //setting media path that is providing media source name
-       Media media=new Media(file.toURI().toString());
-       // providing media player media that is to be played
-       mediaPlayer=new MediaPlayer(media);
-       // providing mediaView to media player that we want to view otherwise we only hear audio
-       mediaView=new MediaView();
-       mediaView.setMediaPlayer(mediaPlayer);
-     //  mediaPlayer.setVolume(0);
-       mediaPlayer.play();
-    }
 
-    public void setButtonsEffect(){
-
-        Image coinSlotImg= new Image("file:ImagesAndVideos/coinSlots.png");
-      //  Button button5 = new Button();
-      //  button5.setGraphic(new ImageView(imageDecline));
-        coinSlot=new Button();
-        coinSlot.setGraphic(new ImageView(coinSlotImg));
-    }
-    public  void menuScreen (ActionEvent event) throws IOException , NullPointerException{
+    public static void menuScreen () throws IOException , NullPointerException{
 
         mediaPlayer.stop();
-        setButtonsEffect();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuScreen.fxml")));
-        Scene scene = new Scene(root, 790.0, 890.0);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setMaxWidth(800.0);
-        stage.setMaxHeight(910.0);
-        stage.setX(600);
-        stage.setY(20);
-        stage.setScene(scene);
-        stage.show();
+       // setButtonsEffect();
+        Pane root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("menuScreen.fxml")));
+        Scene scene = new Scene(root,768.0, 890.0);
+        //790.0, 890.0
+       // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      //  Image coinSlotImg= new Image("file:ImagesAndVideos/coinSlots.png");
+        //coinSlot=new Button();
+      //  coinSlot.setGraphic(new ImageView(coinSlotImg));
+       // coinSlot.autosize();
+        //coinSlot.set
+      //  root.getChildren().addAll(coinSlot);
+        Snake_AND_Ladders.stage.setMaxWidth(800.0);
+        Snake_AND_Ladders.stage.setMaxHeight(910.0);
+        Snake_AND_Ladders.stage.setX(600);
+        Snake_AND_Ladders.stage.setY(20);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
+
     }
 
-    public  void goBackToMenu (ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuScreen.fxml")));
-        Scene scene = new Scene(root,790,890);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setMaxWidth(800.0);
-        stage.setMaxHeight(910.0);
-        stage.setX(600);
-        stage.setY(20);
+   public  static void goBackToMenu () throws IOException {
+         menuScreen ();
+   }
 
-        stage.setScene(scene);
-        stage.show();
-    }
+    public  void goToTrim() throws IOException {
 
-    public  void goToTrim(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("trim.fxml")));
-
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("trim.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders. stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToVsComputer(ActionEvent event) throws IOException {
+    public  void goToVsComputer() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("vsComputer.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("vsComputer.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+       // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToStuff (ActionEvent event) throws IOException {
+    public static void goToStuff() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("stuff.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("stuff.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
+
     }
 
-    public  void goToLocalMultiplayer (ActionEvent event) throws IOException {
+    public  void goToLocalMultiplayer() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game_Controller.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("player1VsPlayer2.fxml")));
         Game_Grid grid = new Game_Grid();
         Scene scene = new Scene(grid.createGrid(), 801.0, 970.0);
 
@@ -193,105 +334,113 @@ public class Game_Controller implements Initializable {
         GAME_BOARD_IMAGE.setFitWidth(801.0);
         grid.createGrid().getChildren().add(GAME_BOARD_IMAGE);
 
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setMaxWidth(815.0);
-        stage.setMaxHeight(980.0);
-        stage.setX(450);
-        stage.setY(20);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setMaxWidth(815.0);
+        Snake_AND_Ladders.stage.setMaxHeight(980.0);
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(20);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToOnlineMultiplayer(ActionEvent event) throws IOException {
+    public  void goToOnlineMultiplayer() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("onlineMultiplayer.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("onlineMultiplayer.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+       // Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToPlayWithFriend(ActionEvent event) throws IOException {
+    public  void goToPlayWithFriend() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("playWithFriend.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("playWithFriend.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+     //   Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToLucky7 (ActionEvent event) throws IOException {
+    public  void goToLucky7() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lucky7.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("lucky7.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToCoinSlot (ActionEvent event) throws IOException {
+    public  void goToCoinSlot() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("coinSlot.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("coinSlot.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+       // Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToMedal (ActionEvent event) throws IOException {
+    public  void goToMedal() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("medal.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("medal.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToPlayLudo(ActionEvent event) throws IOException {
+    public  void goToPlayLudo() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("playLudo.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("playLudo.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+       // Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
 
     }
 
-    public  void goToPeople(ActionEvent event) throws IOException {
+    public  void goToPeople() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("people.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("people.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+       //Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public  void goToFreeCoins (ActionEvent event) throws IOException {
+    public  void goToFreeCoins() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("freeCoins.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Game_Controller.class.getResource("freeCoins.fxml")));
         Scene scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setX(450);
-        stage.setY(200);
-        stage.setScene(scene);
-        stage.show();
+      //  Snake_AND_Ladders.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Snake_AND_Ladders.stage.setX(450);
+        Snake_AND_Ladders.stage.setY(200);
+        scene.getStylesheets().add(css);
+        Snake_AND_Ladders.stage.setScene(scene);
+        Snake_AND_Ladders.stage.show();
     }
 
-    public void goToGameExit(ActionEvent event) throws IOException {
+    public void goToGameExit()  {
         System.exit(0);
     }
 

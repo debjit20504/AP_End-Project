@@ -23,10 +23,6 @@ public class Game_Grid {
 
     public Pane createGrid() {
 
-//       grid.setPrefHeight(Tile.gridHeight);
-//       grid.setPrefWidth(Tile.gridWidth);
-//       grid.setPrefSize(Tile.tileSize*10,Tile.tileSize*10);
-
         for (int i = 0; i < Tile.gridHeight; i++) {
             for (int j = 0; j < Tile.gridWidth; j++) {
                 Tile tile = new Tile((int) (Tile.tileSize), (int) (Tile.tileSize));
@@ -35,8 +31,6 @@ public class Game_Grid {
                 grid.getChildren().add(tile);
             }
         }
-
         return grid;
     }
-
 }
