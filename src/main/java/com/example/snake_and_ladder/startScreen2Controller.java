@@ -21,39 +21,19 @@ public class startScreen2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         progressBar.setStyle("-fx-accent: #00FF00;");
         progressIncrease();
-    }
 
+    }
 
     public void progressIncrease() {
 
         int counter = 0;
 
         while (counter <= 100) {
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
             progressBar.setProgress((counter));
             progressBarLabel.setText(counter + "%");
-
-//            try {
-//                TimeUnit.SECONDS.sleep(1);
-//            } catch (InterruptedException ie) {
-//                Thread.currentThread().interrupt();
-//            }
             counter += 1;
-
-
-//       new Thread(() -> {
-//           for (int i = 1; i <= 10; i++) {
-//               final int counter = i;
-//               Platform.runLater(() -> progressBar.setProgress(counter));
-//           }
-//       }).start();
-
-            progressBarLabel.setText("Loading Game, Please Wait!!");
-
+            progressBarLabel.setText(counter+"%");
         }
+        progressBarLabel.setText("Loading Game, Please Wait!!");
     }
 }

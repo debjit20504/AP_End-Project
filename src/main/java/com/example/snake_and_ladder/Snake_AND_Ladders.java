@@ -1,6 +1,7 @@
 package com.example.snake_and_ladder;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,7 @@ public class Snake_AND_Ladders extends Application {
    static Stage stage;
     @Override
     public void start(Stage primary) throws IOException, InterruptedException {
-        stage=new Stage();
+        stage = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("startScreen1.fxml")));
         Scene scene = new Scene(root);
 
@@ -26,23 +27,8 @@ public class Snake_AND_Ladders extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Thread.sleep(2000);
+        Thread.sleep(200);
 
-//        new Thread(() -> Platform.runLater(() -> {
-//            FXMLLoader fxmlLoader = new FXMLLoader(Snake_AND_Ladders.class.getResource("startScreen2.fxml"));
-//            try {
-//                Scene scene1 = new Scene(fxmlLoader.load());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            stage.setScene((scene));
-//            stage.show();
-//        })).start();
-
-
-//        Task task = new Task() {
-//            @Override
-//            public Object call() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Snake_AND_Ladders.class.getResource("startScreen2.fxml"));
         scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
@@ -56,11 +42,7 @@ public class Snake_AND_Ladders extends Application {
         stage.setX(450);
         stage.setY(200);
         stage.show();
-     //   Game_Controller ins=new Game_Controller();
-    //    ins.instructionsPlay();
-
     }
-
     public static void main (String[]args){
             launch();
     }

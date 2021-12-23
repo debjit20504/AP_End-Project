@@ -7,6 +7,7 @@ import javafx.scene.shape.Rectangle;
 public class Game_Grid {
 
     public Pane grid = new Pane();
+
     static class Tile extends Rectangle {
 
         public static final double tileSize = 80;
